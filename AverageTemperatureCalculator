@@ -1,0 +1,45 @@
+//Ask the User for Input of Number of Days for which the average is to be calculated
+//Calculate The Average
+//Find the number of days with Temperature Higher than Average Temperature
+
+import java.util.Scanner;
+
+class Temp {
+
+    public int arr[] = null;
+    public int sum = 0;
+    public int count = 0;
+    Scanner sc = new Scanner(System.in);
+
+    public void averageTemp(int noOfDays) {
+        arr = new int[noOfDays];
+        for (int i = 0; i <= noOfDays - 1; i++) {
+            System.out.println("Enter Day " + (i + 1) + "'s Temperature");
+            arr[i] = sc.nextInt();
+        }
+        for (int j = 0; j <= noOfDays - 1; j++) {
+            sum = sum + arr[j];
+
+        }
+        int average = sum / noOfDays;
+        System.out.println("The Average Temperature is: " + average);
+        for (int k = 0; k <= noOfDays - 1; k++) {
+            if (arr[k] > average) {
+                count = count + 1;
+            }
+        }
+        System.out.println("Number of Days with Temperature Higher Than Average Temperature is: " + count);
+    }
+}
+
+public class JavaApplication94 {
+
+    public static void main(String[] args) {
+        Scanner sc1 = new Scanner(System.in);
+        Temp t = new Temp();
+        System.out.println("Enter the Number of Days:");
+        int inp = sc1.nextInt();
+        t.averageTemp(inp);
+    }
+
+}
